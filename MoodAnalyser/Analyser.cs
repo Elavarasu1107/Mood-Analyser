@@ -17,6 +17,11 @@ namespace MoodAnalyser
         {
             try
             {
+                if(this.message.Contains(string.Empty))
+                {
+                    throw new CustomException(CustomException.ExceptionType.ENTERED_EMPTY, "Message should not be Empty");
+                    
+                }
                 if (this.message.ToLower().Contains("sad"))
                 {
                     return "Sad";
@@ -26,10 +31,9 @@ namespace MoodAnalyser
                     return "Happy";
                 }
             }
-            catch
+            catch(NullReferenceException)
             {
-                Console.WriteLine("Catch block is Executing");
-                return "Happy";
+                throw new CustomException(CustomException.ExceptionType.ENTERED_NULL, "Message should not be Null");
             }
         }
     }
