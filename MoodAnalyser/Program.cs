@@ -6,8 +6,7 @@ namespace MoodAnalyser
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Enter Your Mood:");
-            string userInput = Console.ReadLine();
+            string userInput = null;
             Analyser getMethod = new Analyser(userInput);
             getMethod.Mood();
         }

@@ -12,7 +12,14 @@ namespace MoodTesting
         [Test]
         public void GetInputAsHappy_AnalyseMood_ReturnHappy()
         {
-            string moodInput = "I am in Any Mood";
+            string moodInput = "I am in Happy Mood";
+            MoodAnalyser.Analyser analyser = new MoodAnalyser.Analyser(moodInput);
+            Assert.AreEqual("Happy", analyser.Mood());
+        }
+        [Test]
+        public void GetInputAsNull_AnalyseMood_ReturnHappy()
+        {
+            string moodInput = null;
             MoodAnalyser.Analyser analyser = new MoodAnalyser.Analyser(moodInput);
             Assert.AreEqual("Happy", analyser.Mood());
         }
