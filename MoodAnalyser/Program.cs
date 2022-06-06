@@ -8,8 +8,8 @@ namespace MoodAnalyser
         {
             Console.WriteLine("Enter Your Mood:");
             string userInput = Console.ReadLine();
-            Analyser analyser = new Analyser();
-            Console.WriteLine("Your Mood: " + analyser.Mood(userInput));
+            Analyser getMethod = new Analyser(userInput);
+            getMethod.Mood();
         }
     }
 }
