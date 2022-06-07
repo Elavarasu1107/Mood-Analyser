@@ -1,4 +1,4 @@
-namespace MoodTesting
+namespace MoodAnalyser
 {
     public class Tests
     {
@@ -29,6 +29,14 @@ namespace MoodTesting
             {
                 Assert.AreEqual("Message should not be Empty", ex.Message);
             }
+        }
+        [Test]
+        public void GivenMoodAnalyserClassNameAsInput_ShouldReturnMoodAnalyserObject()
+        {
+            string message = null;
+            object expected = new Analyser(message);
+            object actual = MoodAnalyserFactory.MoodObject("MoodAnalyser.Analyser", "MoodAnalyser.Analyser");
+            expected.Equals(actual);
         }
     }
 }
