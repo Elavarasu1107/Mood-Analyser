@@ -89,5 +89,19 @@ namespace MoodAnalyser
                 Assert.AreEqual("Class Not Found", ex.Message);
             }
         }
+        [Test]
+        public void GivenImproperConstructorName_ShouldthrowNoSuchMethodException_usingParameterisedConstructor()
+        {
+            try
+            {
+                object expected = new Analyser("Happy");
+                object actual = MoodAnalyserFactory.MoodAnalyserUsingParamaterisedConstructor("MoodAnalyser.Analyser", "Analy", "Happy");
+                expected.Equals(actual);
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("Constructor Not Found", ex.Message);
+            }
+        }
     }
 }
