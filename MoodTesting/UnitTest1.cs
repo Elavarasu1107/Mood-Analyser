@@ -67,7 +67,6 @@ namespace MoodAnalyser
             {
                 Assert.AreEqual("Constructor Not Found", ex.Message);
             }
-
         }
     }
 }
