@@ -33,8 +33,7 @@ namespace MoodAnalyser
         [Test]
         public void GivenMoodAnalyserClassNameAsInput_ShouldReturnMoodAnalyserObject()
         {
-            string message = null;
-            object expected = new Analyser(message);
+            object expected = new Analyser();
             object actual = MoodAnalyserFactory.MoodObject("MoodAnalyser.Analyser", "MoodAnalyser.Analyser");
             expected.Equals(actual);
         }

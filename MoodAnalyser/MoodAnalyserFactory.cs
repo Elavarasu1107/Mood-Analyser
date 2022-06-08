@@ -54,5 +54,20 @@ namespace MoodAnalyser
                 throw new CustomException(CustomException.ExceptionType.NO_SUCH_CLASS, "Class Not Found");
             }
         }
+        public static string InvokeMoodAnalyser(string message, string methodName)
+        {
+            try
+            {
+                Type type = Type.GetType("MoodAnalyser.Analyser");
+                object moodAnalyserObject = MoodAnalyserUsingParamaterisedConstructor("MoodAnalyser.Analyser", "Analyser", message);
+                MethodInfo analyseMethodInfo = type.GetMethod(methodName);
+                object mood = analyseMethodInfo.Invoke(moodAnalyserObject, null);
+                return mood.ToString();
+            }
+            catch (NullReferenceException)
+            {
+                throw new CustomException(CustomException.ExceptionType.NO_SUCH_METHOD, "Method Not Found");
+            }
+        }
     }
 }

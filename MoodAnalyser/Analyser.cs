@@ -18,12 +18,12 @@ namespace MoodAnalyser
         {
             try
             {
-                if(this.message.Contains(string.Empty))
+                if (this.message.Equals(string.Empty))
                 {
                     throw new CustomException(CustomException.ExceptionType.ENTERED_EMPTY, "Message should not be Empty");
-                    
+
                 }
-                if (this.message.ToLower().Contains("sad"))
+                if (this.message.Contains("sad"))
                 {
                     return "Sad";
                 }
