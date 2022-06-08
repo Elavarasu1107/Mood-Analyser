@@ -144,5 +144,19 @@ namespace MoodAnalyser
                 Assert.AreEqual("Field Not Found", ex.Message);
             }
         }
+        [Test]
+        public void GivenNullAsMessage_shouldthrowNoSuchFieldException_UsingDynamicMethod()
+        {
+            try
+            {
+                string expected = "Happy";
+                string actual = MoodAnalyser.MoodAnalyserFactory.DynamicMood(null, "message");
+                Assert.AreEqual(expected, actual);
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("Message should not be null", ex.Message);
+            }
+        }
     }
 }
