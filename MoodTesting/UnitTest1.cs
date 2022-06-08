@@ -130,5 +130,19 @@ namespace MoodAnalyser
             string actual = MoodAnalyser.MoodAnalyserFactory.DynamicMood("Happy", "message");
             Assert.AreEqual(expected, actual);
         }
+        [Test]
+        public void GivenImproperSetField_shouldthrowNoSuchFieldException_UsingDynamicMethod()
+        {
+            try
+            {
+                string expected = "Happy";
+                string actual = MoodAnalyser.MoodAnalyserFactory.DynamicMood("Happy", "mess");
+                Assert.AreEqual(expected, actual);
+            }
+            catch (Exception ex)
+            {
+                Assert.AreEqual("Field Not Found", ex.Message);
+            }
+        }
     }
 }
