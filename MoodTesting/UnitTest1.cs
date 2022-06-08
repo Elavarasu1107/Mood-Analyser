@@ -102,5 +102,12 @@ namespace MoodAnalyser
                 Assert.AreEqual("Constructor Not Found", ex.Message);
             }
         }
+        [Test]
+        public void GivenHappyAsInput_shouldReturnHappy_UsingReflection()
+        {
+            string expected = "Happy";
+            string actual = MoodAnalyser.MoodAnalyserFactory.InvokeMoodAnalyser("Happy", "Mood");
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
